@@ -2,12 +2,12 @@ from . import pieces
 import sys
 
 ABBREVIATIONS = {
- 'R':'Rook',
- 'N':'Knight',
- 'B':'Bishop',
- 'Q':'Queen',
- 'K':'King',
- 'P':'Pawn'
+    'R':'Rook',
+    'N':'Knight',
+    'B':'Bishop',
+    'Q':'Queen',
+    'K':'King',
+    'P':'Pawn'
 }
 
 class InvalidPiece(Exception): pass
