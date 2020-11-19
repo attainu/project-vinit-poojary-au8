@@ -25,7 +25,7 @@ def piece(piece, color='white'):
     return module.__dict__[piece](color)
 
 class Piece(object):
-    __slots__ = ('abbreviation', 'color')
+    __slots__ = ('abbreviation', 'color','can_castle','board')
 
     def __init__(self, color):
         self.can_castle = False

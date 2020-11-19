@@ -17,6 +17,23 @@ FEN_STARTING = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
 RANK_REGEX = re.compile(r"^[A-Z][1-8]$")
 
 class Board(dict):
+    '''
+       Board
+
+       A simple chessboard class
+
+       TODO:
+
+        * PGN export
+        * En passant (Done TJS)
+        * Castling (Done TJS)
+        * Promoting pawns (Done TJS)
+        * 3-time repition (Done TJS)
+        * Fifty-move rule
+        * Take-backs
+        * row/column lables
+        * captured piece imbalance (show how many pawns pieces player is up)
+    '''
 
     axis_y = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H')
     axis_x = tuple(range(1,9)) # (1,2,3,...8)
@@ -243,7 +260,7 @@ class Board(dict):
         else: return True
     def clear(self):
         dict.clear(self)
-        self.positions = [None]
+        self.poistions = [None]
         
     def load(self, fen):
         '''
@@ -337,6 +354,6 @@ class Board(dict):
         result += " " + (" ".join([self.player_turn[0],
                             castling,
                             en_passent,
-                            (self.halfmove_clock),
+                            str(self.halfmove_clock),
                             str(self.fullmove_number)]))
         return result
